@@ -8,6 +8,7 @@ class Employee:
         self.last = last
         self.pay = pay
 
+    @property
     def fullname(self):
         return '{} {}'.format(self.first, self.last)
 
@@ -15,13 +16,19 @@ class Employee:
     def email(self):
         return '{} {}@email.com'.format(self.first, self.last)
 
+    @fullname.setter
+    def fullname(self, name):
+        first, last = name.split(' ')
+        self.first = first
+        self.last = last
+
 
 emp_1 = Employee('Aaron', 'Glenn', 1000)
 
-emp_1.first = 'Calvin'
+emp_1.fullname = 'Calvin Coolidge'
 
 print(emp_1.first)
 print(emp_1.email)
-print(emp_1.fullname())
+print(emp_1.fullname)
 
 # property decorators allow us to define a method, but we can use it like an attribute
