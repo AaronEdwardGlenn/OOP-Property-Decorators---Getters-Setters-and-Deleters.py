@@ -22,6 +22,12 @@ class Employee:
         self.first = first
         self.last = last
 
+    @fullname.deleter
+    def fullname(self):
+        print('Delete Name!')
+        self.first = None
+        self.last = None
+
 
 emp_1 = Employee('Aaron', 'Glenn', 1000)
 
@@ -32,3 +38,4 @@ print(emp_1.email)
 print(emp_1.fullname)
 
 # property decorators allow us to define a method, but we can use it like an attribute
+del emp_1.fullname
